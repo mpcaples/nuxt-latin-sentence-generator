@@ -11,7 +11,7 @@ export const useHomeStore = defineStore('homeStore', {
        async getSentence() {
             const url = "https://latin-sentence-generator.onrender.com/api/sentence"    
 
-            const resp = await fetch(url)
+            const resp = await fetch(url,  { mode: 'no-cors' })
             const data = await resp.json()
             this.sentenceData = this.formCard(this.formatTranslations(data))
             console.log(this.sentenceData)
